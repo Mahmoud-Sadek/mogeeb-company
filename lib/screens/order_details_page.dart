@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mogeeb_company_app/utils/common.dart';
+import 'package:mogeeb_company_app/widget/map_widegt.dart';
 
 class OrderDetailsPage extends StatefulWidget {
   @override
@@ -7,6 +8,8 @@ class OrderDetailsPage extends StatefulWidget {
 }
 
 class _OrderDetailsPageState extends State<OrderDetailsPage> {
+
+  TextEditingController locationController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -117,7 +120,7 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                                       ),
                                     ],
                                   )),
-                                  Row(
+                                  Column(
                                     children: <Widget>[
                                       Text(
                                         'الموقع:- ',
@@ -126,7 +129,32 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                                             fontWeight: FontWeight.bold,
                                             color: accentColor),
                                       ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(right: 15,left: 15,top: 5,bottom: 10),
+                                        child: TextField(
+                                          controller: locationController,
+                                          cursorColor: accentColor,
+                                          style: TextStyle(fontSize: 15,color: accentColor),
+                                          decoration: InputDecoration(
+                                            fillColor: Colors.black38,
+                                            filled: true,
+                                            enabledBorder: UnderlineInputBorder(
+                                              borderSide: BorderSide(color: accentColor),
+                                            ),
+                                            focusedBorder: UnderlineInputBorder(
+                                              borderSide: BorderSide(color: accentColor),
+                                            ),
+                                          ),
+                                          maxLines: 1,
+                                        ),
+                                      ),
                                     ],
+                                  ),
+                                  Container(
+                                    width: MediaQuery.of(context).size.width/1.1,
+                                    height: MediaQuery.of(context).size.height/2.7,
+
+                                    child: MapWidegt(locationController),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(right: 40,left: 40,top: 5,bottom: 10),
