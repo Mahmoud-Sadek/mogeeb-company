@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mogeeb_company_app/screens/login_page.dart';
 import 'package:mogeeb_company_app/utils/common.dart';
+import 'package:mogeeb_company_app/widget/map_widegt.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -9,6 +10,7 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register>
 {
+  TextEditingController locationController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,9 +66,42 @@ class _RegisterState extends State<Register>
                         cursorColor: accentColor,
                         style: TextStyle(fontSize: 15,color: Colors.white),
                         decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.perm_identity,color:accentColor ,),
                           hintStyle: TextStyle(color: Colors.white),
-                          hintText: 'اسم المستخدم',
+                          hintText: 'اسم الشركة',
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: accentColor),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: accentColor),
+                          ),
+                        ),
+                      ),
+                    ), Padding(
+                      padding: const EdgeInsets.only(right: 40,left: 40,top: 15,bottom: 10),
+                      child: TextField(
+                        cursorColor: accentColor,
+                        style: TextStyle(fontSize: 15,color: Colors.white),
+                        decoration: InputDecoration(
+                          hintStyle: TextStyle(color: Colors.white),
+                          hintText: 'اسم المسؤل',
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: accentColor),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: accentColor),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 40,left: 40,top: 5,bottom: 10),
+                      child: TextField(
+                        keyboardType:TextInputType.number ,
+                        cursorColor: accentColor,
+                        style: TextStyle(fontSize: 15,color: Colors.white),
+                        decoration: InputDecoration(
+                          hintStyle: TextStyle(color: Colors.white),
+                          hintText: 'رقم الجوال',
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: accentColor),
                           ),
@@ -83,7 +118,6 @@ class _RegisterState extends State<Register>
                         cursorColor: accentColor,
                         style: TextStyle(fontSize: 15,color: Colors.white),
                         decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.email,color:accentColor ,),
                           hintStyle: TextStyle(color: Colors.white),
                           hintText: 'البريد الالكترونى',
                           enabledBorder: UnderlineInputBorder(
@@ -102,7 +136,6 @@ class _RegisterState extends State<Register>
                         cursorColor: accentColor,
                         style: TextStyle(fontSize: 15,color: Colors.white),
                         decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.https,color:accentColor ,),
                           hintStyle: TextStyle(color: Colors.white),
                           hintText: 'كلمة المرور',
                           enabledBorder: UnderlineInputBorder(
@@ -114,16 +147,15 @@ class _RegisterState extends State<Register>
                         ),
                       ),
                     ),
-                    Padding(
+      Padding(
                       padding: const EdgeInsets.only(right: 40,left: 40,top: 5,bottom: 10),
                       child: TextField(
                         keyboardType:TextInputType.number ,
                         cursorColor: accentColor,
                         style: TextStyle(fontSize: 15,color: Colors.white),
                         decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.phone_android,color:accentColor ,),
                           hintStyle: TextStyle(color: Colors.white),
-                          hintText: 'رقم الجوال',
+                          hintText: 'التخصص',
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: accentColor),
                           ),
@@ -133,7 +165,49 @@ class _RegisterState extends State<Register>
                         ),
                       ),
                     ),
+      Padding(
+                      padding: const EdgeInsets.only(right: 40,left: 40,top: 5,bottom: 10),
+                      child: TextField(
+                        keyboardType:TextInputType.number ,
+                        cursorColor: accentColor,
+                        style: TextStyle(fontSize: 15,color: Colors.white),
+                        decoration: InputDecoration(
+                          hintStyle: TextStyle(color: Colors.white),
+                          hintText: 'السجل التجارى',
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: accentColor),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: accentColor),
+                          ),
+                        ),
+                      ),
+                    ),
+      Padding(
+                      padding: const EdgeInsets.only(right: 40,left: 40,top: 5,bottom: 10),
+                      child: TextField(
+                        controller: locationController,
+                        keyboardType:TextInputType.number ,
+                        cursorColor: accentColor,
+                        style: TextStyle(fontSize: 15,color: Colors.white),
+                        decoration: InputDecoration(
+                          hintStyle: TextStyle(color: Colors.white),
+                          hintText: 'الموقع',
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: accentColor),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: accentColor),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width/1.1,
+                      height: MediaQuery.of(context).size.height/2.7,
 
+                      child: MapWidegt(locationController),
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(top: 30,bottom: 15),
                       child: Container(
